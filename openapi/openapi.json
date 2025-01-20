@@ -1,0 +1,80 @@
+{
+  "openapi" : "3.0.3",
+  "components" : {
+    "schemas" : {
+      "Configuration" : {
+        "type" : "object",
+        "properties" : {
+          "run" : {
+            "description" : "The run configuration.",
+            "type" : "object",
+            "anyOf" : [ {
+              "$ref" : "#/components/schemas/RunConfiguration"
+            }, {
+              "enum" : [ null ]
+            } ],
+            "nullable" : true
+          }
+        },
+        "additionalProperties" : false
+      },
+      "RunConfiguration" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "description" : "Optional name",
+            "type" : "string",
+            "nullable" : true
+          },
+          "maxThreadCount" : {
+            "format" : "int32",
+            "description" : "Optional maximum number.",
+            "default" : 1,
+            "minimum" : 1,
+            "type" : "integer",
+            "nullable" : true
+          },
+          "tags" : {
+            "description" : "Optional tags.",
+            "uniqueItems" : true,
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths" : {
+    "/hello" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "OK",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        },
+        "summary" : "Hello",
+        "tags" : [ "Greeting Resource" ]
+      }
+    }
+  },
+  "info" : {
+    "title" : "code-with-quarkus API",
+    "version" : "1.0.0-SNAPSHOT"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080",
+    "description" : "Auto generated value"
+  }, {
+    "url" : "http://0.0.0.0:8080",
+    "description" : "Auto generated value"
+  } ]
+}
