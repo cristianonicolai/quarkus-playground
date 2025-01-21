@@ -41,8 +41,18 @@
             "items" : {
               "type" : "string"
             }
+          },
+          "status" : {
+            "allOf" : [ {
+              "$ref" : "#/components/schemas/Status"
+            } ],
+            "nullable" : true
           }
         }
+      },
+      "Status" : {
+        "enum" : [ "ACTIVE", "INACTIVE" ],
+        "type" : "string"
       }
     }
   },

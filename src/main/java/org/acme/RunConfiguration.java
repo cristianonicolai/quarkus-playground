@@ -12,6 +12,7 @@ public record RunConfiguration(
                 description = "Optional maximum number.",
                 minimum = "1", defaultValue = "1") Integer maxThreadCount,
         @JsonInclude(JsonInclude.Include.NON_NULL) @Schema(
-                description = "Optional tags.") Set<String> tags) {
+                description = "Optional tags.") Set<String> tags,
+        @Schema(nullable = true) Status status) {
 
 }
