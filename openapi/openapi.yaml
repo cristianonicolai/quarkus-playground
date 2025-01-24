@@ -8,10 +8,8 @@ components:
         run:
           description: The run configuration.
           type: object
-          anyOf:
+          allOf:
           - $ref: "#/components/schemas/RunConfiguration"
-          - enum:
-            - null
           nullable: true
       additionalProperties: false
     RunConfiguration:
